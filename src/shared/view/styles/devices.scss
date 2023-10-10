@@ -1,0 +1,54 @@
+/**
+@see https://getbootstrap.com/docs/5.0/layout/breakpoints/#max-width
+Why subtract .02px? Browsers don’t currently support range context queries,
+so we work around the limitations of min- and max- prefixes and viewports
+with fractional widths (which can occur under certain conditions on high-dpi
+devices, for instance) by using values with higher precision.
+ */
+$desktop-min-width: 1280px;
+$desktop-base-screen: 1440px;
+$desktop-large-screen: 1700px;
+
+$tablet-max-width: $desktop-min-width - 0.2px;
+$tablet-min-width: 768px;
+
+$mobile-base-screen: 375px;
+$mobile-max-width: $desktop-min-width - 0.2px;
+
+$base-screen-height: 800px - 0.2px;
+
+@mixin mobile {
+  @media only screen and (max-width: $mobile-max-width) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media only screen and (min-width: $tablet-min-width) and (max-width: $tablet-max-width) {
+    @content;
+  }
+}
+
+@mixin mobile-tablet {
+  @media only screen and (max-width: $tablet-max-width) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media only screen and (min-width: $desktop-min-width) {
+    @content;
+  }
+}
+
+@mixin desktop-max-height {
+  @media only screen and (min-width: $desktop-min-width) and (max-height: $base-screen-height) {
+    @content;
+  }
+}
+
+@mixin desktop-large {
+  @media only screen and (min-width: $desktop-large-screen) {
+    @content;
+  }
+}

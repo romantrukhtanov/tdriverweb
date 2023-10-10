@@ -1,0 +1,13 @@
+build/*
+src/public/*
+.eslintrc.js
+.eslintrc.core.js
+babel.config.js
+stylelint.config.js
+styles.config.ts
+webpack.config.ts
+scripts/
+storybook-static/
+coverage/
+_draft/
+_gen/

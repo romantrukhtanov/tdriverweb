@@ -1,0 +1,20 @@
+@use 'src/shared/view/styles/themes';
+@use 'src/shared/view/styles/responsive' as R;
+@use 'src/shared/view/styles/variables' as V;
+@use 'src/shared/view/styles/devices' as D;
+
+.root {
+  width: R.rem(200px);
+  height: R.rem(200px);
+
+
+  @include D.desktop {
+    width: R.rem(350px);
+    height: R.rem(350px);
+  }
+
+  @include D.desktop-large {
+    width: R.vw(350px);
+    height: R.vw(350px);
+  }
+}

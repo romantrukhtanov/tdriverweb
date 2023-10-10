@@ -1,0 +1,33 @@
+@use 'src/shared/view/styles/devices' as D;
+@use 'src/shared/view/styles/responsive' as R;
+
+.root {
+  margin-bottom: R.rem(30px);
+
+  @include D.desktop {
+    padding: 0 R.rem(32px);
+    margin: 0 auto R.rem(40px);
+    max-width: R.rem(1024px + 62px);
+  }
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: R.rem(900px);
+}
+
+.title {
+  margin: 0;
+
+  font-size: R.rem(22px);
+  line-height: R.rem(30px);
+  letter-spacing: R.rem(0.5px);
+  font-weight: 400;
+
+  @include D.desktop {
+    font-size: R.rem(28px);
+    line-height: R.rem(38px);
+    letter-spacing: R.rem(1px);
+    text-align: center;
+  }
+}

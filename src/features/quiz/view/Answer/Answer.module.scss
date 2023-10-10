@@ -1,0 +1,114 @@
+@use 'src/shared/view/styles/themes';
+@use 'src/shared/view/styles/colors';
+@use 'src/shared/view/styles/hover';
+@use 'src/shared/view/styles/devices' as D;
+@use 'src/shared/view/styles/responsive' as R;
+
+.root {
+  padding: R.rem(12px);
+
+  display: flex;
+  align-items: center;
+  gap: R.rem(12px);
+
+  width: 100%;
+
+  border-radius: R.rem(8px);
+
+  font-size: R.rem(14px);
+  font-weight: 400;
+  line-height: R.rem(20px);
+  letter-spacing: R.rem(1px);
+
+  cursor: pointer;
+
+  @include D.desktop {
+    padding: R.rem(16px) R.rem(24px);
+
+    gap: R.rem(24px);
+
+    font-size: R.rem(20px);
+    line-height: R.rem(28px);
+  }
+
+  @include hover.hover {
+    color: colors.$iridium;
+
+    .letter {
+      border-color: colors.$iridium;
+    }
+
+    @include themes.theme {
+      background-color: themes.global('yellowColor');
+    }
+  }
+
+  &.disabled {
+    pointer-events: none;
+  }
+
+  &.default {
+    background-color: transparent;
+  }
+
+  &.right {
+    @include themes.theme {
+      background-color: themes.global('lightGreenColor');
+    }
+  }
+
+  &.wrong {
+    @include themes.theme {
+      background-color: themes.global('lightRedColor');
+    }
+  }
+
+  &.right,
+  &.wrong {
+    color: colors.$iridium;
+
+    .letter {
+      border-color: colors.$iridium;
+    }
+  }
+
+  @include themes.theme {
+    border: 1px solid themes.global('secondaryColor');
+  }
+}
+
+.letter {
+  flex-shrink: 0 ;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  width: R.rem(36px);
+  height: R.rem(36px);
+
+  &::before {
+    counter-increment: letters;
+    content: counter(letters, upper-alpha);
+  }
+
+  @include D.mobile {
+    font-size: R.rem(16px);
+    line-height: R.rem(20px);
+  }
+
+  @include D.desktop {
+    width: R.rem(48px);
+    height: R.rem(48px);
+  }
+
+  @include themes.theme {
+    border: 1px solid themes.global('secondaryColor');
+  }
+}
+
+.answer {
+  margin: 0;
+}

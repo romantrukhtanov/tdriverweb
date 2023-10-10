@@ -1,0 +1,56 @@
+@use 'src/shared/view/styles/themes';
+@use 'src/shared/view/styles/colors';
+@use 'src/shared/view/styles/hover';
+@use 'src/shared/view/styles/webkit-scrollbar' as S;
+@use 'src/shared/view/styles/responsive' as R;
+@use 'src/shared/view/styles/devices' as D;
+
+.root {
+  position: sticky;
+  left: 0;
+  right: 0;
+  top: 0;
+  z-index: 50;
+
+  width: 100%;
+}
+
+.close,
+.logo {
+  position: fixed;
+  top: R.rem(30px);
+
+  border-radius: 50%;
+  overflow: hidden;
+
+  @include themes.theme {
+    background-color: themes.global('primaryColor');
+  }
+}
+
+.logo {
+  left: R.rem(20);
+
+  @include D.desktop {
+    left: R.rem(32px);
+  }
+}
+
+.close {
+  right: R.rem(20);
+
+  @include D.desktop {
+    right: R.rem(32px);
+  }
+}
+
+.extra-icon {
+
+  @include D.desktop {
+    width: R.rem(48px);
+    height: R.rem(48px);
+
+    font-size: R.rem(20) !important; //overrides base styles
+    font-weight: 500 !important; // overrides base styles
+  }
+}

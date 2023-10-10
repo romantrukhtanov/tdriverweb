@@ -1,0 +1,21 @@
+@mixin button() {
+  overflow: visible;
+
+  padding: 0;
+
+  text-align: left;
+
+  color: inherit;
+  border: none;
+  background: none;
+
+  font: inherit;
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    outline: none;
+  }
+}

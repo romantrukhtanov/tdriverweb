@@ -1,0 +1,12 @@
+@use 'src/shared/view/styles/themes';
+
+.root {
+  width: 100%;
+  height: 1px;
+
+  border-radius: 1px;
+
+  @include themes.theme {
+    background-color: themes.global('secondaryColor');
+  }
+}

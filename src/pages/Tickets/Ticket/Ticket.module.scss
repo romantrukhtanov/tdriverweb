@@ -1,0 +1,54 @@
+@use 'src/shared/view/styles/themes';
+@use 'src/shared/view/styles/colors';
+@use 'src/shared/view/styles/hover';
+@use 'src/shared/view/styles/responsive' as R;
+@use 'src/shared/view/styles/variables' as V;
+@use 'src/shared/view/styles/devices' as D;
+
+.root {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  width: R.rem(100px);
+  height: R.rem(52px);
+
+  padding: R.rem(16px) 0;
+
+  @include D.desktop {
+    width: R.rem(130px);
+    height: R.rem(60px);
+
+    padding: R.rem(20px) 0;
+  }
+
+  @include hover.hover {
+    @include themes.theme {
+      color: colors.$iridium;
+      background-color: themes.global('lightYellowColor');
+    }
+  }
+
+  @include themes.theme {
+    color: themes.global('secondaryColor');
+    border-top: 1px solid themes.global('secondaryColor');
+    border-bottom: 1px solid themes.global('secondaryColor');
+  }
+}
+
+.ticket-number {
+  margin: 0;
+
+  font-size: R.rem(12px);
+  line-height: R.rem(20px);
+  letter-spacing: R.rem(1px);
+  font-weight: 400;
+  text-align: center;
+
+  text-transform: uppercase;
+
+  @include D.desktop {
+    font-size: R.rem(14px);
+  }
+}

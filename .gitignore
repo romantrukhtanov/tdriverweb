@@ -1,0 +1,25 @@
+.vscode
+.DS_STORE
+node_modules
+.module-cache
+*.log*
+build
+dist
+.idea
+yarn.lock
+_draft
+_gen
+coverage/
+storybook-static
+.env
+#/locales/
+
+# CYPRESS
+cypress.env.json
+cypress/results
+cypress/screenshots
+cypress/videos
+cypress/plugins/.babel-cache
+
+# for backward compatibility
+# src/assets/locales/

@@ -1,0 +1,20 @@
+@use 'src/shared/view/styles/colors';
+@use 'src/shared/view/styles/themes';
+@use 'src/shared/view/styles/devices';
+
+.root {
+  &::before {
+    content: '';
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+
+    @include themes.theme {
+      background-color: themes.global('primaryColor');
+    }
+  }
+}

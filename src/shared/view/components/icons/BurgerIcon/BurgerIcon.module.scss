@@ -1,0 +1,6 @@
+@use 'src/shared/view/styles/responsive' as R;
+
+.root {
+  width: R.rem(32px);
+  height: R.rem(32px);
+}

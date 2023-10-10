@@ -1,0 +1,11 @@
+@use 'src/shared/view/styles/responsive' as R;
+@use 'src/shared/view/styles/devices' as D;
+
+.root {
+  min-width: R.rem(300px);
+
+  @include D.mobile {
+    width: 100%;
+    max-width: R.rem(375px);
+  }
+}

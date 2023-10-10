@@ -1,0 +1,115 @@
+@use 'src/shared/view/styles/themes';
+@use 'src/shared/view/styles/devices' as D;
+@use 'src/shared/view/styles/responsive' as R;
+
+$max-media-mobile-height: 200px;
+$max-media-desktop-height: 282px;
+
+.root {
+  display: flex;
+  gap: R.rem(30px);
+
+  @include D.mobile {
+    flex-direction: column;
+  }
+
+  @include D.desktop {
+    margin: 0 auto R.rem(100px + 64px);
+    max-width: R.rem(900px);
+
+    &.with-media {
+      max-width: R.rem(1024px);
+    }
+  }
+}
+
+.media {
+  flex-shrink: 0;
+
+  padding: R.rem(8px);
+
+  width: 100%;
+  height: min-content;
+  min-height: R.rem(80px);
+  max-height: R.rem($max-media-mobile-height);
+
+  border-radius: R.rem(8px);
+
+  @include D.tablet {
+    max-height: R.rem($max-media-desktop-height);
+  }
+
+  @include D.desktop {
+    padding: R.rem(16px);
+
+    width: R.rem(480px);
+    min-height: R.rem(160px);
+    max-height: R.rem($max-media-desktop-height);
+
+    border-radius: R.rem(16px);
+
+    object-fit: cover;
+  }
+
+  @include themes.theme {
+    border: 1px solid themes.global('secondaryColor');
+  }
+}
+
+.media-inner {
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100%;
+
+  border-radius: R.rem(4px);
+
+  @include D.desktop {
+    border-radius: R.rem(8px);
+  }
+
+  @include themes.theme {
+    border: 1px solid themes.global('secondaryColor');
+  }
+}
+
+.media-source {
+  width: auto;
+  max-width: 100%;
+  max-height: R.rem($max-media-desktop-height - 32px);
+
+  object-position: center;
+  object-fit: cover;
+
+  @include D.mobile {
+    max-height: R.rem($max-media-mobile-height - 20px);
+  }
+}
+
+
+.list {
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: R.rem(12px);
+
+  width: 100%;
+
+  counter-reset: letters;
+
+  @include D.desktop {
+    gap: R.rem(16px);
+  }
+}
+
+.item {
+  margin: 0;
+  padding: 0;
+}

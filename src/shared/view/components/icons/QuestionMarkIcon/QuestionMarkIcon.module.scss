@@ -1,0 +1,12 @@
+@use 'src/shared/view/styles/devices' as D;
+@use 'src/shared/view/styles/responsive' as R;
+
+.root {
+  width: R.rem(300px);
+  height: R.rem(300px);
+
+  @include D.mobile {
+    width: R.rem(240px);
+    height: R.rem(240px);
+  }
+}

@@ -1,0 +1,39 @@
+@use 'src/shared/view/styles/colors';
+@use 'src/shared/view/styles/themes';
+@use 'src/shared/view/styles/hover';
+@use 'src/shared/view/styles/typography';
+@use 'src/shared/view/styles/responsive' as R;
+
+.root {
+  min-width: auto;
+  padding: 0;
+
+  cursor: pointer;
+  vertical-align: baseline;
+  letter-spacing: inherit;
+  text-transform: none;
+
+  border: none;
+  background: none;
+
+  font-family: typography.$jost-font;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+
+  &.focused {
+    @include themes.theme {
+      outline-offset: R.rem(4px);
+      outline: R.rem(2px) solid themes.global('lightGreenColor');
+    }
+  }
+
+  @include themes.theme {
+    color: themes.global('secondaryColor');
+  }
+
+  @include hover.hover {
+    text-shadow: colors.$yellow 1px 0 4px;
+    background: none;
+  }
+}

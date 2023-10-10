@@ -1,0 +1,45 @@
+@use 'sass:math';
+@use 'functions' as F;
+@use 'devices' as D;
+@use 'variables' as V;
+
+@function vw($value, $base: D.$desktop-base-screen) {
+  @return math.div(
+    F.strip-units($value),
+    F.strip-units($base)
+  ) * 100vw;
+}
+
+@function vh($value, $base: D.$base-screen-height) {
+  @return math.div(
+    F.strip-units($value),
+    F.strip-units($base)
+  ) * 100vh;
+}
+
+@function vmin($value, $base: D.$mobile-base-screen) {
+  @return math.div(
+    F.strip-units($value),
+    F.strip-units($base)
+  ) * 100vmin;
+}
+
+@function rem($value, $base: V.$default-root-font-size) {
+  @return math.div(
+    F.strip-units($value),
+    F.strip-units($base)
+
+  ) * 1rem;
+}
+
+@function em($value, $base: V.$default-root-font-size) {
+  @return math.div(
+    F.strip-units($value),
+    F.strip-units($base)
+
+  ) * 1em;
+}
+
+@function px($value, $coefficient: 1) {
+  @return F.strip-units($value) * $coefficient * 1px;
+}

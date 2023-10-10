@@ -1,0 +1,59 @@
+@use 'colors';
+@use 'themes';
+
+@mixin scrollbar {
+  scrollbar-width: thin; // firefox
+
+  @include themes.theme {
+    scrollbar-color: themes.global('secondaryColor') transparent; // firefox
+  }
+
+  &::-webkit-scrollbar {
+    width: 2px;
+    height: 6px;
+
+    &-thumb {
+      border-radius: 1px;
+
+      @include themes.theme {
+        background-color: themes.global('secondaryColor');
+      }
+    }
+
+    &-track {
+      border-radius: 1px;
+
+      @include themes.theme {
+        background-color: themes.global('primaryColor');
+      }
+    }
+  }
+}
+
+@mixin scrollbar-with-background {
+  @include scrollbar;
+
+  @include themes.theme {
+    scrollbar-color: themes.global('secondaryColor') themes.global('secondaryColor'); // firefox
+  }
+
+  &::-webkit-scrollbar-track {
+    @include themes.theme {
+      background-color: themes.global('primaryColor');
+    }
+  }
+}
+
+@mixin scrollbar-hidden {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    display: none;
+  }
+
+  &::-webkit-scrollbar-track {
+    display: none;
+  }
+}

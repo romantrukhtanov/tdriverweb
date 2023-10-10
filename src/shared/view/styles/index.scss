@@ -1,0 +1,94 @@
+@use 'themes';
+@use 'typography';
+@use 'webkit-scrollbar';
+@use 'resets';
+@use 'variables';
+@use 'devices' as D;
+
+@import 'font-face';
+
+html {
+  height: 100%;
+  scrollbar-width: none; /* hide vertical scroll for Firefox */
+  text-size-adjust: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+
+  font-family: typography.$jost-font;
+  font-size: variables.$default-root-font-size;
+  font-weight: 400;
+
+  -ms-overflow-style: none; /* hide vertical scroll for Internet Explorer 10+ */
+
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
+  &::-webkit-scrollbar {
+    display: none; /* hide vertical scroll for Safari and Chrome */
+  }
+
+  // for modal overlay scroll color (example: view bot modal)
+  @include themes.theme {
+    background-color: themes.global('primaryColor');
+  }
+}
+
+#root {
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 100%;
+
+  @include themes.theme {
+    color: themes.global('secondaryColor');
+    background-color: themes.global('primaryColor');
+  }
+
+  &.storybook {
+    font-family: typography.$jost-font;
+    font-weight: 500;
+
+    @include themes.theme {
+      background-color: themes.global('primaryColor');
+    }
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+}
+
+button {
+  @include resets.button;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+* {
+  font-family: inherit;
+
+  @include webkit-scrollbar.scrollbar;
+}

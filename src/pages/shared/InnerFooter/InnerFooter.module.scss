@@ -1,0 +1,55 @@
+@use 'src/shared/view/styles/themes';
+@use 'src/shared/view/styles/responsive' as R;
+@use 'src/shared/view/styles/variables' as V;
+@use 'src/shared/view/styles/devices' as D;
+
+.root {
+  padding: R.rem(16px) R.rem(32px);
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: R.rem(24px);
+
+  &.fixed {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
+
+    width: 100%;
+  }
+
+  @include themes.theme {
+    color: themes.global('secondaryColor');
+    background-color: themes.global('primaryColor');
+  }
+
+  @include D.desktop {
+    @include themes.theme {
+      box-shadow: 0 -1px 0 0 themes.global('secondaryColor');
+    }
+  }
+
+  @include D.mobile {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+
+    padding: R.rem(24px) R.rem(20px);
+  }
+}
+
+.copyright {
+  font-size: R.rem(16px);
+  line-height: R.rem(20px);
+  letter-spacing: R.rem(1px);
+  font-weight: 400;
+
+  text-transform: uppercase;
+
+  @include D.mobile {
+    font-size: R.rem(16px);
+  }
+}

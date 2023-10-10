@@ -1,0 +1,62 @@
+@use 'src/shared/view/styles/colors';
+@use 'src/shared/view/styles/themes';
+@use 'src/shared/view/styles/hover';
+@use 'src/shared/view/styles/typography';
+@use 'src/shared/view/styles/responsive' as R;
+
+.button {
+  min-width: auto;
+  height: fit-content;
+
+  text-transform: uppercase;
+  border-radius: R.rem(30px);
+  padding: R.rem(20px);
+  max-height: R.rem(60px);
+
+  font-family: typography.$jost-font;
+  font-size: R.rem(16px);
+  font-weight: 400;
+  line-height: R.rem(20px);
+  letter-spacing: R.rem(4px);
+
+  @include themes.theme {
+    color: themes.global('primaryColor');
+    background: themes.global('secondaryColor');
+  }
+
+  @include hover.hover {
+    color: colors.$iridium;
+    background: colors.$yellow;
+
+    @include themes.theme {
+      border: 1px solid themes.global('secondaryColor');
+    }
+  }
+
+  &.disabled {
+    @include themes.theme {
+      background-color: themes.global('grayColor');
+    }
+  }
+
+  &.full-width {
+    width: 100%;
+  }
+
+  &.full-height {
+    height: 100%;
+  }
+
+  &.capitalized {
+    text-transform: capitalize;
+  }
+}
+
+.preloader {
+  position: absolute;
+
+
+  @include themes.theme {
+    color: themes.global('primaryColor');
+  }
+}

@@ -1,0 +1,36 @@
+@use 'src/shared/view/styles/colors';
+@use 'src/shared/view/styles/themes';
+@use 'src/shared/view/styles/typography';
+@use 'src/shared/view/styles/responsive' as R;
+
+$border-radius: R.rem(12px);
+
+.root {
+  &.full-width {
+    width: 100%;
+  }
+}
+
+.popper {
+  z-index: 5;
+
+  &.above-modal-backdrop {
+    z-index: 2100;
+  }
+}
+
+.paper {
+  width: auto;
+  overflow: hidden;
+
+  padding: R.rem(12px) R.rem(16px);
+
+  border-radius: $border-radius;
+
+  @include themes.theme {
+    border: 1px solid themes.global('secondaryColor');
+    background-color: themes.global('primaryColor');
+
+    box-shadow: 0 R.rem(4px) R.rem(24px) 0 rgba(0, 0, 0, 0.30);
+  }
+}

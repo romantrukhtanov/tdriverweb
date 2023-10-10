@@ -1,0 +1,11 @@
+@use '../colors';
+
+$night: (
+  primaryColor: colors.$iridium,
+  secondaryColor: colors.$cream,
+  lightGreenColor: colors.$light-green,
+  lightRedColor: colors.$light-red,
+  lightYellowColor: colors.$light-yellow,
+  yellowColor: colors.$yellow,
+  grayColor: colors.$light-gray,
+);

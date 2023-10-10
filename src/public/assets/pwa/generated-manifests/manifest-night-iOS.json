@@ -1,0 +1,26 @@
+{
+  "$ NOTES $": [
+    "The file is generated automatically; to update run `npm run generate-manifests`",
+    "Don't delete this file anyway! This will break the manifest update for PWA users."
+  ],
+  "name": "TDriver",
+  "short_name": "TDriver - Подготовка к сдаче экзамена",
+  "description": "Твоя безопасность – в твоих знаниях",
+  "theme_color": "#f9fbe7",
+  "background_color": "#3e3b36",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "categories": [
+    "education"
+  ],
+  "icons": [
+    {
+      "src": "/assets/pwa/apple-touch-icon-180x180.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "id": "tdriver"
+}

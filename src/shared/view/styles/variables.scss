@@ -1,0 +1,8 @@
+@use "sass:math";
+@use "devices" as D;
+
+// SIZES
+$default-root-font-size: 16px;
+
+// COEFFICIENTS
+$scalable-coefficient: math.div(D.$desktop-large-screen, D.$desktop-base-screen)

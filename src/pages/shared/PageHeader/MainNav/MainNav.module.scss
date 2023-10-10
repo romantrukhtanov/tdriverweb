@@ -1,0 +1,44 @@
+@use 'src/shared/view/styles/colors';
+@use 'src/shared/view/styles/themes';
+@use 'src/shared/view/styles/hover';
+@use 'src/shared/view/styles/responsive' as R;
+
+.root {
+  display: grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: R.rem(32px);
+}
+
+.navLink {
+  display: inline-block;
+
+  font-size: R.rem(16px);
+  font-weight: 400;
+  line-height: R.rem(20px);
+  letter-spacing: R.rem(1px);
+
+  text-transform: uppercase;
+
+  &::before {
+    display: block;
+    content: attr(title);
+    font-weight: 500;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+  }
+
+  &.active {
+    font-weight: 500;
+  }
+
+  @include themes.theme {
+    color: themes.global('secondaryColor');
+  }
+
+  @include hover.hover {
+    font-weight: 500;
+  }
+}
+

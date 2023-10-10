@@ -1,0 +1,33 @@
+@use 'src/shared/view/styles/colors';
+@use 'src/shared/view/styles/themes';
+@use 'src/shared/view/styles/devices' as D;
+@use 'src/shared/view/styles/responsive' as R;
+
+.root {
+  width: R.rem(900px);
+  height: R.rem(300px);
+
+  @include themes.theme {
+    color: themes.global('secondaryColor');
+  }
+
+  @include D.mobile {
+    width: R.rem(335px);
+    height: R.rem(110px);
+  }
+
+  @include D.desktop-large {
+    width: R.vw(900px);
+    height: R.vw(300px);
+  }
+
+  @include D.desktop-max-height {
+    width: R.vh(900px * 0.9);
+    height: R.vh(300px * 0.9);
+  }
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+}

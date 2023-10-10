@@ -1,0 +1,139 @@
+{
+  "features": {
+    "categories": {
+      "title": "Категориялар"
+    },
+    "tickets": {
+      "title": "Чипталар"
+    },
+    "aboutProject": {
+      "title": "Лойиҳаси ҳақида"
+    }
+  },
+  "pages": {
+    "main": {
+      "title": "Сизнинг билимингиз бу сизнинг хавфсизлигингиз"
+    },
+    "categories": {
+      "title": "Категориялар",
+      "questions": "Саволлар: {{amount}}",
+      "list": {
+        "terms": "Атамалар",
+        "obligations": "Йўл ҳаракати қатнашчиларининг ҳуқуқ ва мажбуриятлари",
+        "traffic_lights": "Тартибга солувчи ва светофор ишоралари",
+        "emergency_signals": "Огоҳлантирувчи ва фалокат ишоралари",
+        "start_of_movements": "Ҳаракатланишни бошлаш, йўналишларни ўзгартириш",
+        "transport_location": "Йўлнинг қатнов қисмида transport воситаларининг жойлашиши",
+        "speed": "Harakat tezligi",
+        "overtake": "Quvib o'tish",
+        "parking": "To'xtash va to'xtab turish",
+        "equal_intersections": "Teng ahamiyatli chorrahalar ",
+        "regulated_intersections": "Tartibga solingan (svetoforli) chorrahalar",
+        "unregulated_intersections": "Tartibga solinmagan (imtiyoz belgili) chorrahalar",
+        "railway": "Temir yo`l kesishmalari orqali harakatlanish",
+        "motorway": "Avtomagistrallarda harakat",
+        "external_lights": "Tashqi yoritish chiroqlari",
+        "towing": "Shatakka olish",
+        "people_transportation": "Odam tashish",
+        "cargo_transportation": "Yuk tashish",
+        "warning_signs": "Ogohlantiruvchi belgilar",
+        "prohibition_signs": "Ta'qiqlovchi belgilar",
+        "prescriptive_signs": "Buyuruvchi belgilar",
+        "additional_signs": "Axborot ishora, servis va qo'shimcha axborot belgilari",
+        "road_markers": "Yo'l chiziqlari",
+        "exploitation": "Transport vositalaridan foydalanishni taqiqlovchi shartlar",
+        "identification_signs": "Transport vositalarining taniqlilik belgilari",
+        "auto_control": "Harakat xavfsizligi asoslari savollari",
+        "medical_aid": "Birinchi tibbiy yordam ko'rsatish bo'yicha savollar"
+      }
+    },
+    "tickets": {
+      "title": "Чипталар",
+      "ticket": "Чипта №{{ticketNumber}}"
+    },
+    "about": {
+      "title": "Лойиҳаси ҳақида",
+      "description":
+      "Лойиҳа ўқув мақсадларида тақдим етилган. <br /> Маълумотлар базасида 1000 та ППД тест саволлари мавжуд.",
+      "supportProject": "Лойиҳани қўллаб-қувватлаш",
+      "cryptoWallets": "Крипто-ҳамёнлар"
+    },
+    "results": {
+      "title": "Натижалар",
+      "message": {
+        "success": "Табриклаймиз! <br /> Сиз тестдан муваффақиятли ўтдингиз.",
+        "failure": "Сен ажойибсан! Қайта уриниб кўринг.",
+        "rightAnswers": "Тўғри жавоблар",
+        "wrongAnswers": "Хатолар қилинган"
+      }
+    },
+    "pageHeader": {
+      "logoTitle": "TDriver | Tashkent | Beta",
+      "mainMenu": {
+        "main": "Бош саҳифа",
+        "categories": "Категориялар",
+        "tickets": "Чипталар",
+        "about": "Лойиҳаси ҳақида"
+      }
+    },
+    "errorBoundary": {
+      "info": "Техник хатолик",
+      "infoDetailsDefault": "Бу устида ишлаяпмиз, кейинроқ қайта уриниб кўринг",
+      "errorTitle": "Воқеа хатоси ID {{eventId}}:",
+      "logoutButton": "Чиқиш",
+      "refreshButton": "Янгилаш",
+      "tryAgainButton": "Қайта уриниб кўринг",
+      "copyNotification": "Хато коди вақтинчалик хотирага кўчирилди"
+    }
+  },
+  "services": {
+    "settings": {
+      "languages": {
+        "ru": "Русский",
+        "uz": "O'zbekcha",
+        "uzk": "Ўзбекча"
+      },
+      "languagesShort": {
+        "ru": "Ru",
+        "uz": "Uz",
+        "uzk": "Ўз"
+      },
+      "theme": {
+        "day": "Ёрқин мавзу",
+        "night": "Қоронғи мавзу"
+      },
+      "installApp": "Иловани ўрнатинг"
+    },
+    "installation": {
+      "1": "1) Safari браузерида очинг",
+      "2": "2) \"Улашиш\" тугмасини босинг",
+      "3": "3) \"Бош екранга ўтиш\" тугмасини босинг"
+    }
+  },
+  "shared": {
+    "title": "TDriver - Сизнинг билимингиз бу сизнинг хавфсизлигингиз",
+    "startTest": "Синовни бошланг",
+    "exam": "Имтиҳон",
+    "prev": "Ортга",
+    "next": "Олдинга",
+    "yes": "Ҳа",
+    "no": "Йўқ",
+    "continue": "Кейинчалик",
+    "error": "Хато",
+    "repeat": "Такрорланг",
+    "goToAnswers": "Жавобларга",
+    "goToResults": "Жавобларга",
+    "areYouReady": "Тайёрмисиз?",
+    "finishTest": "Синов ёпилсинми?",
+    "goToMain": "Бош саҳифага ўтингми?",
+    "copied": "Нусхаланди",
+    "copyright": "RT.DEV | MOOND @2023",
+    "showAnotherSlide": "Бошқа слайдни кўрсатиш",
+    "hour": "Соат",
+    "hours": "Соат",
+    "days": "Кунлар",
+    "day": "Кун",
+    "min": "Дақиқа",
+    "sec": "Сония"
+  }
+}

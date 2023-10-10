@@ -1,0 +1,59 @@
+/* stylelint-disable at-rule-no-unknown */
+@use 'sass:map';
+@use 'themes/night';
+@use 'themes/day';
+
+$themes: (
+        default: (
+                day: day.$day,
+                night: night.$night,
+        ),
+);
+$theme-days: (
+        default: 'day',
+);
+$theme: null;
+$theme-map: null;
+$theme-day: null;
+
+@mixin theme($kind: 'default') {
+  @each $theme, $map in map.get($themes, $kind) {
+    $theme: $theme !global;
+    $theme-map: () !global;
+    $theme-day: map.get($theme-days, $kind) !global;
+
+    :global(.theme-#{$theme}) & {
+      @each $key, $submap in $map {
+        $value: map.get($themes, $kind, $theme, '#{$key}');
+        $theme-map: map.merge(
+                        $theme-map,
+                        (
+                                $key: $value,
+                        )
+        ) !global;
+      }
+
+      @content;
+    }
+
+    $theme: null !global;
+    $theme-map: null !global;
+    $theme-day: null !global;
+  }
+}
+
+@function global($key) {
+  @if map.has-key($theme-map, $key) {
+    @return map.get($theme-map, $key);
+  } @else {
+    @error 'Error: provided property does not exist in global theme map';
+  }
+}
+
+@function themed($day, $night) {
+  @if $theme == $theme-day {
+    @return $day;
+  }
+
+  @return $night;
+}

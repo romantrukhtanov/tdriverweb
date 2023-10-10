@@ -1,0 +1,62 @@
+@use 'src/shared/view/styles/responsive' as R;
+@use 'src/shared/view/styles/devices' as D;
+
+.root {
+  padding-top: R.rem(36px);
+  margin-bottom: R.rem(24px);
+
+  &.large-gap {
+    margin-bottom: R.rem(36px);
+  }
+
+  &.medium-gap {
+    margin-bottom: R.rem(32px);
+  }
+
+  @include D.desktop {
+    padding-top: R.rem(12px);
+    max-width: R.rem(1080px);
+
+    &.small-gap {
+      margin-bottom: R.rem(16px);
+    }
+
+    &.default-gap {
+      margin-bottom: R.rem(32px);
+    }
+
+    &.medium-gap {
+      margin-bottom: R.rem(40px);
+    }
+
+    &.large-gap {
+      margin-bottom: R.rem(48px);
+    }
+  }
+}
+
+.title {
+  margin: 0;
+
+  font-size: R.rem(136px);
+  line-height: R.rem(160px);
+  font-weight: 400;
+
+  text-transform: uppercase;
+
+  &.small {
+    font-size: R.rem(112px);
+    line-height: 110%;
+  }
+
+  @include D.mobile {
+    font-size: R.rem(48px);
+    line-height: R.rem(60px);
+    text-align: center;
+
+    &.small {
+      font-size: R.rem(48px);
+      line-height: R.rem(60px);
+    }
+  }
+}

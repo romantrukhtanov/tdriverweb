@@ -1,0 +1,30 @@
+@use 'src/shared/view/styles/responsive' as R;
+@use 'src/shared/view/styles/devices' as D;
+
+.root {
+  padding: R.rem(8px) R.rem(72px);
+  margin-bottom: R.rem(20px);
+
+  @include D.desktop {
+    padding: 0;
+    margin: 0 auto R.rem(24px);
+  }
+}
+
+.title {
+  margin: 0;
+
+  font-weight: 500;
+  letter-spacing: R.rem(1px);
+  text-align: center;
+
+  @include D.desktop {
+    font-size: R.rem(24px);
+    line-height: R.rem(28px);
+  }
+
+  @include D.mobile {
+    font-size: R.rem(18px);
+    line-height: R.rem(20px);
+  }
+}

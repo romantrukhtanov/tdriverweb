@@ -1,0 +1,42 @@
+@use 'src/shared/view/styles/responsive' as R;
+@use 'src/shared/view/styles/devices' as D;
+
+.root {
+  @include D.desktop {
+    margin: 0 auto R.rem(100px);
+  }
+}
+
+.title {
+  margin: 0;
+
+  font-size: R.rem(28px);
+  font-weight: 400;
+  line-height: R.rem(38px);
+  letter-spacing: R.rem(1px);
+
+  text-align: center;
+}
+
+.icon {
+  margin: 0 auto R.rem(16px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: R.rem(300px);
+}
+
+.buttons {
+  margin: 0 auto;
+
+  display: flex;
+  gap: R.rem(20px);
+
+  max-width: R.rem(460px);
+
+  @include D.mobile {
+    padding: 0 R.rem(20px);
+    gap: R.rem(8px);
+  }
+}
