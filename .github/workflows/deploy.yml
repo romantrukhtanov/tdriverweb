@@ -1,0 +1,53 @@
+name: 🚀 Deploy
+on:
+  pull_request:
+    branches:
+      - production
+jobs:
+  Deploy-Action:
+    name: 🎉 Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🚚 Get latest code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+
+      - name: Use Node.js 18
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      - name: Cache npm dependencies
+        uses: actions/cache@v3
+        id: cache-node-modules
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+
+      - name: 🔨 Install Dependencies
+        if: steps.npm-cache.outputs.cache-hit != 'true'
+        run: |
+          npm ci
+          git reset --hard
+
+      - name: ✔️ Lint and test project
+        run: |
+          npm run lint
+          npm run ts
+          npm run test
+
+      - name: 🏗️ Build project
+        run: |
+          npm run build:prod
+
+      - name: 📂 Sync folders and files to the server
+        uses: SamKirkland/FTP-Deploy-Action@4.3.4
+        with:
+          protocol: ftps
+          local-dir: ./build/
+          dangerous-clean-slate: true
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
