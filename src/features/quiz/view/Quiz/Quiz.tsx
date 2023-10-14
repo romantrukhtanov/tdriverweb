@@ -80,15 +80,19 @@ export const Quiz = observer(function Quiz({ redirectTo }: Props) {
         </div>
       </main>
 
-      <QuizFooter
-        buttons={[
-          {
-            text: t(isFinishedQuiz ? sharedTranslations.goToResults : sharedTranslations.continue),
-            onClick: handleContinueClick,
-          },
-        ]}
-        disabled={!(isActiveQuestionAnswered || isFinishedQuiz) || isShowQuestionMark}
-      />
+      {!isShowQuestionMark && (
+        <QuizFooter
+          buttons={[
+            {
+              text: t(
+                isFinishedQuiz ? sharedTranslations.goToResults : sharedTranslations.continue,
+              ),
+              onClick: handleContinueClick,
+            },
+          ]}
+          disabled={!(isActiveQuestionAnswered || isFinishedQuiz)}
+        />
+      )}
     </div>
   );
 
