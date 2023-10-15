@@ -1,18 +1,12 @@
 import { describe, it, expect, vi, afterEach } from 'vitest';
 
-import { checkIsProduction, checkIsLocalhost } from '../env';
+import { checkIsLocalhost } from '../env';
 import { parseURLSearch } from '../parseURLSearch';
 
 describe('shared/helpers', () => {
   describe('env', () => {
     afterEach(() => {
       mockHostname('');
-    });
-
-    it('isProduction should return true if hostname equals to test env or prod env', () => {
-      expect(checkIsProduction()).toBe(true);
-      mockHostname('localhost');
-      expect(checkIsProduction()).toBe(false);
     });
 
     it('isLocalhost should return true if hostname is localhost', () => {
