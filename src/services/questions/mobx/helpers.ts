@@ -1,4 +1,4 @@
-import { CATEGORIES } from '../constants';
+import { CATEGORIES_SET } from '../constants';
 import type * as M from './model';
 
 export const checkCategory = (categoryName: string): categoryName is M.Category => {
@@ -6,7 +6,7 @@ export const checkCategory = (categoryName: string): categoryName is M.Category 
     return false;
   }
 
-  return CATEGORIES.includes(categoryName);
+  return CATEGORIES_SET.has(categoryName);
 };
 
 export const getLocalQuestion = (questionData: M.QuestionData, localIndex: number): M.Question => {
