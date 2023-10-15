@@ -1,11 +1,8 @@
-name: 🚀 Deploy
-on:
-  push:
-    branches:
-      - production
+name: 🚀 Lint
+on: push
 jobs:
   Deploy-Action:
-    name: 🎉 Deploy
+    name: 🎉 Lint
     runs-on: ubuntu-latest
 
     steps:
@@ -37,17 +34,3 @@ jobs:
           npm run lint
           npm run ts
           npm run test
-
-      - name: 🏗️ Build project
-        run: |
-          npm run build:prod
-
-      - name: 📂 Sync folders and files to the server
-        uses: SamKirkland/FTP-Deploy-Action@4.3.3
-        with:
-          protocol: ftps
-          local-dir: ./build/
-          dangerous-clean-slate: true
-          server: ${{ secrets.FTP_SERVER }}
-          username: ${{ secrets.FTP_USERNAME }}
-          password: ${{ secrets.FTP_PASSWORD }}
