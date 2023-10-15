@@ -4,7 +4,6 @@ import { observer } from 'mobx-react-lite';
 
 import { useService } from 'services/servicesProvider';
 import { InnerBlock } from 'pages/shared/InnerBlock/InnerBlock';
-import { Button } from 'shared/view/components/Button';
 import { Wallet } from 'features/about/view/Wallet/Wallet';
 import { BankCard } from 'features/about/view/BankCard/BankCard';
 import { wallets, bankCards } from 'features/about/constants';

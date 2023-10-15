@@ -8,7 +8,6 @@ import type { SettingsStore } from 'services/settings';
 import { IS_PRODUCTION } from 'shared/helpers/env';
 import { NAME_SPACE } from 'services/i18n/constants';
 import { ru } from 'services/i18n/translations/ruTranslations';
-import { uz } from 'services/i18n/translations/uzTranslations';
 
 import { tKeys, TKeys } from '.';
 

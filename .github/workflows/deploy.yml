@@ -1,6 +1,6 @@
 name: 🚀 Deploy
 on:
-  pull_request:
+  push:
     branches:
       - production
 jobs:
@@ -43,7 +43,7 @@ jobs:
           npm run build:prod
 
       - name: 📂 Sync folders and files to the server
-        uses: SamKirkland/FTP-Deploy-Action@4.3.4
+        uses: SamKirkland/FTP-Deploy-Action@4.3.3
         with:
           protocol: ftps
           local-dir: ./build/
