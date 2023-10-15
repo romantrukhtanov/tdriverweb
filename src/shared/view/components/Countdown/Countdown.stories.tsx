@@ -14,8 +14,8 @@ export const Example: StoryObj<typeof Countdown> = {
   name: 'Countdown',
 
   args: {
-    startDate: date(),
-    finishDate: add(date(), { [UnitOfTime.MONTHS]: 1 }),
+    completedAt: add(date(), { [UnitOfTime.MONTHS]: 1 }),
+    finishedAt: date(),
     showOptions: {
       days: true,
       hours: true,

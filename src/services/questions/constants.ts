@@ -1,6 +1,6 @@
 import * as M from './mobx/model';
 
-export const CATEGORIES: M.Category[] = [
+export const CATEGORIES_SET = new Set([
   'terms',
   'obligations',
   'traffic_lights',
@@ -28,7 +28,7 @@ export const CATEGORIES: M.Category[] = [
   'identification_signs',
   'auto_control',
   'medical_aid',
-];
+]);
 
 export const DEFAULT_CATEGORIES_DATA: Record<M.Category, M.QuestionData[]> = {
   terms: [],
