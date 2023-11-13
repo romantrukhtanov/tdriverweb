@@ -13,7 +13,6 @@
     "build:prod": "better-npm-run build:prod",
     "build:bundle-analyzer": "better-npm-run build:bundle-analyzer",
     "mockLocalesFolder": "ts-node -r tsconfig-paths/register scripts/mockLocalesFolder.ts",
-    "setCategoryToTickets": "ts-node -r tsconfig-paths/register scripts/setCategoryToTickets.ts",
     "find-unused-translations": "ts-node -r tsconfig-paths/register scripts/findUnusedTranslations.ts",
     "prettier": "prettier --write \"src/**/*.{ts,tsx,scss,json}\"",
     "prettier:check": "prettier --check \"src/**/*.{ts,tsx,scss,json}\"",
@@ -27,7 +26,8 @@
     "prepare-commit-msg": "husky-add-issue-tracker",
     "generate-manifests": "ts-node scripts/manifestsGeneration.ts",
     "storybook": "better-npm-run storybook",
-    "build-storybook": "better-npm-run build-storybook"
+    "build-storybook": "better-npm-run build-storybook",
+    "deploy": "better-npm-run build:prod && ts-node -r tsconfig-paths/register scripts/deploy.ts"
   },
   "betterScripts": {
     "dev": {
@@ -199,6 +199,7 @@
     "@mui/lab": "^5.0.0-alpha.124",
     "@mui/material": "~5.12.0",
     "@popperjs/core": "^2.10.2",
+    "@samkirkland/ftp-deploy": "^1.2.3",
     "build-route-tree": "^1.0.2",
     "classnames": "^2.3.1",
     "date-fns": "^2.30.0",

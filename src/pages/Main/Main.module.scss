@@ -26,7 +26,7 @@ $mobile-title-font-size: 34px;
 
   @include D.mobile {
     padding: 0;
-    gap: R.rem(48px);
+    gap: R.rem(32px);
   }
 }
 
@@ -106,7 +106,7 @@ $mobile-title-font-size: 34px;
   }
 
   @include D.mobile {
-    margin-bottom: R.rem(160px);
+    margin-bottom: R.rem(100px);
   }
 }
 
@@ -130,7 +130,7 @@ $mobile-title-font-size: 34px;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: R.rem(24px);
+    gap: R.rem(8px);
 
     padding: R.rem(24px) R.rem(20px);
 
@@ -141,7 +141,7 @@ $mobile-title-font-size: 34px;
 }
 
 .copyright {
-  font-size: R.rem(18px);
+  font-size: R.rem(14px);
   line-height: R.rem(20px);
   letter-spacing: R.rem(1px);
   font-weight: 400;
@@ -153,13 +153,11 @@ $mobile-title-font-size: 34px;
     top: R.rem(36px);
     right: R.rem(36px);
 
+    font-size: R.rem(18px);
+
     text-align: right;
 
     transform: translate(100%, 0) rotate(90deg);
     transform-origin: left top;
-  }
-
-  @include D.mobile {
-    font-size: R.rem(16px);
   }
 }

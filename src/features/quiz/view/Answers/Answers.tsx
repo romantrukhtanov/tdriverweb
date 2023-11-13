@@ -24,6 +24,9 @@ export const Answers = observer(function Answers({
 }: Props) {
   const { answers, rightAnswer, image, video } = question.questionData;
 
+  const isRightAnswer = checkRightAnswer();
+  const isRenderVideo = isAnswered && isRightAnswer && video;
+
   const withMedia = image ?? video;
 
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -39,10 +42,10 @@ export const Answers = observer(function Answers({
       {withMedia && (
         <div className={styles.media}>
           <div className={styles.mediaInner}>
-            {image && !(isAnswered && video) && (
+            {image && !isRenderVideo && (
               <img className={styles.mediaSource} src={`/${image}`} alt="Media" draggable={false} />
             )}
-            {video && isAnswered && (
+            {isRenderVideo && (
               <video
                 ref={videoRef}
                 className={styles.mediaSource}
@@ -76,9 +79,16 @@ export const Answers = observer(function Answers({
     </div>
   );
 
+  function checkRightAnswer() {
+    return rightAnswer - 1 === question.answeredIndex;
+  }
+
   function getAnswerStatus(index: number): M.QuestionStatus {
     if (question.answeredIndex === index) {
-      return rightAnswer - 1 === question.answeredIndex ? 'right' : 'wrong';
+      return isRightAnswer ? 'right' : 'wrong';
+    }
+    if (isAnswered && index === rightAnswer - 1) {
+      return 'right';
     }
     return 'default';
   }

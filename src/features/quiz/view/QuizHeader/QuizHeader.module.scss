@@ -6,22 +6,38 @@
 @use 'src/shared/view/styles/devices' as D;
 
 .root {
-  position: sticky;
+  position: absolute;
   left: 0;
   right: 0;
-  top: 0;
+  top: R.rem(20);
   z-index: 50;
 
   width: 100%;
+
+  @include D.mobile {
+    display: flex;
+    justify-content: space-between;
+
+    padding-left: R.rem(20px);
+    padding-right: R.rem(20px);
+  }
+
+  @include D.desktop {
+    position: sticky;
+    top: 0;
+  }
 }
 
 .close,
 .logo {
-  position: fixed;
-  top: R.rem(30px);
-
+  position: relative;
   border-radius: 50%;
   overflow: hidden;
+
+  @include D.desktop {
+    position: fixed;
+    top: R.rem(30px);
+  }
 
   @include themes.theme {
     background-color: themes.global('primaryColor');
@@ -29,16 +45,12 @@
 }
 
 .logo {
-  left: R.rem(20);
-
   @include D.desktop {
     left: R.rem(32px);
   }
 }
 
 .close {
-  right: R.rem(20);
-
   @include D.desktop {
     right: R.rem(32px);
   }

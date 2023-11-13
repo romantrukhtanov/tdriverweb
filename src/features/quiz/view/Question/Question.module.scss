@@ -2,7 +2,7 @@
 @use 'src/shared/view/styles/responsive' as R;
 
 .root {
-  margin-bottom: R.rem(30px);
+  margin-bottom: R.rem(20px);
 
   @include D.desktop {
     padding: 0 R.rem(32px);

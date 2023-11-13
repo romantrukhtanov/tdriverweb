@@ -18,11 +18,12 @@
   width: 100%;
 
   @include D.mobile {
-    padding: 0 R.rem(20px) R.rem(20px);
+    padding: 0 R.rem(20px) R.rem(24px);
 
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
+    gap: R.rem(12px);
 
     &::before {
       content: '';

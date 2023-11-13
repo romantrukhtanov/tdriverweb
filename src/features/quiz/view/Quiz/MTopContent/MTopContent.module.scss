@@ -8,8 +8,8 @@
 .root {
   position: sticky;
   top: 0;
-  padding-top: R.rem(30px);
-  margin-bottom: R.rem(30px);
+  padding-top: R.rem(20px);
+  margin-bottom: R.rem(20px);
 
   @include themes.theme {
     background-color: themes.global('primaryColor');
