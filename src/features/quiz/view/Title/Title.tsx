@@ -14,6 +14,7 @@ type Props = {
 
 export const Title = observer(function Title({ playMarquee = false }: Props) {
   const { ticketID, category } = useURLParams();
+  const { isMobile } = useService('settings');
 
   const { t, tKeys } = useService('i18n');
   const translations = tKeys.pages;
@@ -21,7 +22,13 @@ export const Title = observer(function Title({ playMarquee = false }: Props) {
 
   return (
     <div className={styles.root}>
-      <Marquee className={styles.marquee} play={playMarquee} loop={0} speed={50} delay={0.25}>
+      <Marquee
+        className={styles.marquee}
+        play={playMarquee && isMobile}
+        loop={0}
+        speed={50}
+        delay={0.25}
+      >
         <h2 className={styles.title}>{renderTitle()}</h2>
       </Marquee>
     </div>
