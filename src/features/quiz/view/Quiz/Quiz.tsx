@@ -8,17 +8,18 @@ import styles from './Quiz.module.scss';
 import { QuizLayout } from './QuizLayout/QuizLayout';
 
 type Props = {
+  playMarquee?: boolean;
   redirectTo?: string;
 };
 
-export const Quiz = observer(function Quiz({ redirectTo }: Props) {
+export const Quiz = observer(function Quiz({ playMarquee, redirectTo }: Props) {
   const { currentIndex } = useFeature('quiz');
 
   const elementRef = useResetScroll([currentIndex]);
 
   return (
     <div className={styles.root} ref={elementRef}>
-      <QuizLayout redirectTo={redirectTo} />
+      <QuizLayout playMarquee={playMarquee} redirectTo={redirectTo} />
     </div>
   );
 });

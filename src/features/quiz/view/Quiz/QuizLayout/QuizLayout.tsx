@@ -16,10 +16,11 @@ import { QuestionsAndAnswers } from '../QuestionsAndAnswers/QuestionsAndAnswers'
 import styles from './QuizLayout.module.scss';
 
 type Props = {
+  playMarquee?: boolean;
   redirectTo?: string;
 };
 
-export const QuizLayout = observer(function QuizLayout({ redirectTo }: Props) {
+export const QuizLayout = observer(function QuizLayout({ playMarquee, redirectTo }: Props) {
   const { redirect, navigateToMain } = useRedirect(redirectTo);
   const { redirectToResults } = useRedirectToResults();
 
@@ -48,7 +49,7 @@ export const QuizLayout = observer(function QuizLayout({ redirectTo }: Props) {
       <main className={styles.main}>
         <div className={styles.content}>
           {isMobile ? (
-            <MTopContent onPaginationClick={handlePaginationClick} />
+            <MTopContent onPaginationClick={handlePaginationClick} playMarquee={playMarquee} />
           ) : (
             <>
               <Title />

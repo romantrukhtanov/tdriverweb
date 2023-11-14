@@ -8,10 +8,11 @@ import { Quiz } from 'features/quiz/view/Quiz/Quiz';
 import { useURLParams } from 'pages/shared/hooks/useURLParams';
 
 type Props = {
+  playMarquee?: boolean;
   redirectTo?: string;
 };
 
-export const QuizPage = observer(function QuizPage({ redirectTo }: Props) {
+export const QuizPage = observer(function QuizPage({ playMarquee, redirectTo }: Props) {
   const { ticketID, category } = useURLParams();
 
   const { redirect } = useRedirect(redirectTo);
@@ -30,5 +31,5 @@ export const QuizPage = observer(function QuizPage({ redirectTo }: Props) {
     }
   }, [ticketID, category]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  return questions.length ? <Quiz redirectTo={redirectTo} /> : <></>;
+  return questions.length ? <Quiz playMarquee={playMarquee} redirectTo={redirectTo} /> : <></>;
 });

@@ -5,14 +5,25 @@
   padding: R.rem(8px) R.rem(72px);
   margin-bottom: R.rem(12px);
 
+  min-height: R.rem(36px);
+
   @include D.desktop {
     padding: 0;
     margin: 0 auto R.rem(24px);
   }
 }
 
+.marquee {
+  overflow: hidden;
+
+  :global(.rfm-initial-child-container),
+  :global(.rfm-child) {
+    width: 100%;
+  }
+}
+
 .title {
-  margin: 0;
+  margin: 0 R.rem(16px);
 
   font-weight: 500;
   letter-spacing: R.rem(1px);

@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import Marquee from 'react-fast-marquee';
 
 import { useService } from 'services';
 import * as M from 'services/questions/mobx/model';
@@ -7,7 +8,11 @@ import { useURLParams } from 'pages/shared/hooks/useURLParams';
 
 import styles from './Title.module.scss';
 
-export const Title = observer(function Title() {
+type Props = {
+  playMarquee?: boolean;
+};
+
+export const Title = observer(function Title({ playMarquee = false }: Props) {
   const { ticketID, category } = useURLParams();
 
   const { t, tKeys } = useService('i18n');
@@ -16,7 +21,9 @@ export const Title = observer(function Title() {
 
   return (
     <div className={styles.root}>
-      <h2 className={styles.title}>{renderTitle()}</h2>
+      <Marquee className={styles.marquee} play={playMarquee} loop={0} speed={50} delay={0.25}>
+        <h2 className={styles.title}>{renderTitle()}</h2>
+      </Marquee>
     </div>
   );
 

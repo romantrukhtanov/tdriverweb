@@ -52,7 +52,7 @@ export function Router() {
           path="/categories/:category"
           element={
             <ErrorBoundary key="categories-quiz">
-              <QuizPageLazy redirectTo={routes.categories.getRedirectPath()} />
+              <QuizPageLazy redirectTo={routes.categories.getRedirectPath()} playMarquee />
             </ErrorBoundary>
           }
         />

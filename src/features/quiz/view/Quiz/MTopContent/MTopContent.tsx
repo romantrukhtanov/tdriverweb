@@ -13,10 +13,14 @@ import { InfinityIcon } from 'shared/view/components/icons';
 import styles from './MTopContent.module.scss';
 
 type Props = {
+  playMarquee?: boolean;
   onPaginationClick(num: number): void;
 };
 
-export const MTopContent = observer(function MTopContent({ onPaginationClick }: Props) {
+export const MTopContent = observer(function MTopContent({
+  onPaginationClick,
+  playMarquee,
+}: Props) {
   const { ticketID, category } = useURLParams();
   const { redirectToResults } = useRedirectToResults();
 
@@ -35,7 +39,7 @@ export const MTopContent = observer(function MTopContent({ onPaginationClick }: 
 
   return (
     <div className={styles.root}>
-      <Title />
+      <Title playMarquee={playMarquee} />
 
       <div className={styles.progress}>
         {isRenderTimer ? (
