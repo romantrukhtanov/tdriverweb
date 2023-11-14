@@ -2,8 +2,8 @@ import path from 'path';
 import { deploy } from '@samkirkland/ftp-deploy';
 import { config } from 'dotenv';
 
-export const envPath = '.env';
-export const { parsed } = config({ path: envPath });
+const envPath = '.env';
+const { parsed } = config({ path: envPath });
 
 if (!parsed) {
   // eslint-disable-next-line no-console
