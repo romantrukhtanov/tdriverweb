@@ -1,0 +1,23 @@
+@use 'src/shared/view/styles/devices' as D;
+@use 'src/shared/view/styles/responsive' as R;
+
+.root {
+  position: fixed;
+  top: 0;
+  width: R.rem(120px);
+  height: R.rem(120px);
+  right: R.rem(-20px);
+
+  background: radial-gradient(50% 50.00% at 50% 50.00%, rgba(#FEE251, 0.61) 0%, rgba(#FEE251, 0.00) 100%);
+
+  filter: blur(R.rem(16px));
+
+  transition: transform 0.2s ease-out;
+
+  @include D.desktop {
+    left: 0;
+    top: 0;
+    width: R.rem(160px);
+    height: R.rem(160px);
+  }
+}

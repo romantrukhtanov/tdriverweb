@@ -5,6 +5,7 @@ import { Navigate, Route, Routes } from 'react-router-dom';
 import { useScrollRestoration } from 'shared/view/hooks/useScrollRestoration';
 import { ErrorBoundary } from 'pages/shared/ErrorBoundary/ErrorBoundary';
 import { PageHeader } from 'pages/shared/PageHeader/PageHeader';
+import { Sphere } from 'shared/view/components/Sphere';
 import { lazyfy } from 'shared/helpers/lazyfy';
 
 import styles from './Layout.module.scss';
@@ -76,7 +77,7 @@ export const Layout = observer(function Layout() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
-      <div className={styles.sphere} />
+      <Sphere />
     </div>
   );
 });

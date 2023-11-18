@@ -1,0 +1,9 @@
+@use 'src/shared/view/styles/responsive' as R;
+
+.root {
+  display: flex;
+  gap: R.rem(16px);
+
+  margin-left: R.rem(32px);
+}
+

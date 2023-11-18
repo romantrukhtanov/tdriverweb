@@ -1,5 +1,6 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import { animated, useSpring } from '@react-spring/web';
 
 import { useFeature } from 'features/featureProvider';
 import { useResetScroll } from 'shared/view/hooks/useResetScroll';
@@ -17,9 +18,17 @@ export const Quiz = observer(function Quiz({ playMarquee, redirectTo }: Props) {
 
   const elementRef = useResetScroll([currentIndex]);
 
+  const spring = useSpring({
+    from: {
+      opacity: 0,
+    },
+    opacity: 1,
+    delay: 300,
+  });
+
   return (
-    <div className={styles.root} ref={elementRef}>
+    <animated.div className={styles.root} ref={elementRef} style={spring}>
       <QuizLayout playMarquee={playMarquee} redirectTo={redirectTo} />
-    </div>
+    </animated.div>
   );
 });

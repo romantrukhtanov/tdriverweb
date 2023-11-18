@@ -1,9 +1,11 @@
 import React from 'react';
+import { animated } from '@react-spring/web';
 import { observer } from 'mobx-react-lite';
 import * as R from 'remeda';
 
 import { useService } from 'services/servicesProvider';
 import { useFeature } from 'features/featureProvider';
+import { getDefaultConfig, useSpringOnce } from 'shared/animations/useSpringOnce';
 import { InnerBlock } from 'pages/shared/InnerBlock/InnerBlock';
 
 import { Ticket } from './Ticket/Ticket';
@@ -17,19 +19,23 @@ export const Tickets = observer(function Tickets() {
   const { resetQuiz } = useFeature('quiz');
   const translations = tKeys.pages.tickets;
 
+  const spring = useSpringOnce('tickets-list', getDefaultConfig({ y: '10%', duration: 750 }));
+
+  const iconSpring = useSpringOnce('ticket-icon', getDefaultConfig({ x: '20%', duration: 750 }));
+
   return (
     <InnerBlock title={t(translations.title)} gap="large" aria-label="tickets">
       <div className={styles.root}>
-        <ul className={styles.list}>
+        <animated.ul className={styles.list} style={spring}>
           {R.range(0, ticketsAmount).map(ticket => (
             <li key={`${selectedLanguage}_${ticket}`} className={styles.item}>
               <Ticket ticketNumber={ticket + 1} onClick={handleTicketClick} />
             </li>
           ))}
-        </ul>
-        <div className={styles.icon}>
+        </animated.ul>
+        <animated.div className={styles.icon} style={iconSpring}>
           <TicketsIcon />
-        </div>
+        </animated.div>
       </div>
     </InnerBlock>
   );

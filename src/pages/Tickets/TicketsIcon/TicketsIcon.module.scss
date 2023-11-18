@@ -8,6 +8,9 @@
   height: R.rem(200px);
 
   @include D.desktop {
+    position: sticky;
+    top: calc(50vh - #{R.rem(175px)});
+
     width: R.rem(350px);
     height: R.rem(350px);
   }

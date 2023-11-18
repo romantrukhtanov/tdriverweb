@@ -7,7 +7,9 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+}
 
+.wrapper {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -31,13 +33,6 @@
   @include themes.theme {
     background: themes.global('primaryColor');
   }
-}
-
-.settings {
-  display: flex;
-  gap: R.rem(16px);
-
-  margin-left: R.rem(32px);
 }
 
 .burger-button {

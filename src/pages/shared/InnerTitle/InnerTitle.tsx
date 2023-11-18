@@ -1,6 +1,9 @@
 import React from 'react';
 import { observer } from 'mobx-react-lite';
+import { animated } from '@react-spring/web';
 import cn from 'classnames';
+
+import { getDefaultConfig, useSpringOnce } from 'shared/animations/useSpringOnce';
 
 import styles from './InnerTitle.module.scss';
 
@@ -11,10 +14,12 @@ type Props = {
 };
 
 export const InnerTitle = observer(function InnerFooter({ title, gap, isSmallTitle }: Props) {
+  const spring = useSpringOnce(title, getDefaultConfig({ x: '-15%', duration: 1000 }));
+
   return (
-    <div className={cn(styles.root, styles[`${gap}-gap`])}>
+    <animated.div className={cn(styles.root, styles[`${gap}-gap`])} style={spring}>
       <h1 className={cn(styles.title, { [styles.small]: isSmallTitle })}>{title}</h1>
-    </div>
+    </animated.div>
   );
 });
 
