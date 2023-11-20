@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useLayoutEffect } from 'react';
 import { observer } from 'mobx-react-lite';
+import { animated, useSpring } from '@react-spring/web';
 import { Trans } from 'react-i18next';
 
 import { useService } from 'services/servicesProvider';
@@ -12,15 +13,17 @@ import { Button } from 'shared/view/components/Button';
 import { CheckIcon, CrossIcon } from 'shared/view/components/icons';
 import { useRedirect } from 'shared/view/hooks/useRedirect';
 import { useURLParams } from 'pages/shared/hooks/useURLParams';
+import { getDefaultConfig } from 'shared/animations';
 
 import { ResultsIcon } from './ResultsIcon/ResultsIcon';
 import styles from './Results.module.scss';
 
 type Props = {
-  redirectTo(ticket: string): string;
+  redirectToPage: string;
+  redirectToQuiz(ticket: string): string;
 };
 
-export const Results = observer(function Results({ redirectTo }: Props) {
+export const Results = observer(function Results({ redirectToQuiz, redirectToPage }: Props) {
   const { ticketID, category } = useURLParams();
 
   const { t, tKeys } = useService('i18n');
@@ -35,24 +38,33 @@ export const Results = observer(function Results({ redirectTo }: Props) {
     setCurrentIndex,
   } = useFeature('quiz');
 
-  const redirectPath = redirectTo(ticketID || category || '/');
+  const redirectToQuizPath = redirectToQuiz(ticketID || category || '/');
 
-  const { redirect } = useRedirect(redirectPath);
+  const { redirect: quizRedirect } = useRedirect(redirectToQuizPath);
+  const { redirect: pageRedirect } = useRedirect(redirectToPage);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!questions.length) {
-      redirect();
+      quizRedirect();
     }
   }, [questions]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const translations = tKeys.pages.results;
   const sharedTranslations = tKeys.shared;
 
+  const leftSpring = useSpring(getDefaultConfig({ x: '-10%', duration: 1000 }));
+
+  const opacitySpring = useSpring(getDefaultConfig({ duration: 1000 }));
+
+  const iconSpring = useSpring(getDefaultConfig({ x: '20%', duration: 750 }));
+
   return (
-    <div className={styles.root}>
+    <animated.div className={styles.root} style={opacitySpring}>
       <PageHeader />
       <main className={styles.main}>
-        <InnerTitle title={t(translations.title)} gap="medium" />
+        <animated.div style={isMobile ? opacitySpring : leftSpring}>
+          <InnerTitle title={t(translations.title)} gap="medium" />
+        </animated.div>
 
         <div className={styles.content}>
           <div className={styles.column}>
@@ -87,10 +99,18 @@ export const Results = observer(function Results({ redirectTo }: Props) {
               </div>
             </div>
 
-            <div className={styles.repeatButton}>
-              <Button fullWidth onClick={handleRepeatClick}>
-                {t(sharedTranslations.repeat)}
-              </Button>
+            <div className={styles.buttons}>
+              <div className={styles.button}>
+                <Button fullWidth onClick={handleRepeatClick}>
+                  {t(sharedTranslations.repeat)}
+                </Button>
+              </div>
+
+              <div className={styles.button}>
+                <Button fullWidth onClick={handleClick}>
+                  {t(sharedTranslations.goToAnswers)}
+                </Button>
+              </div>
             </div>
           </div>
 
@@ -110,26 +130,32 @@ export const Results = observer(function Results({ redirectTo }: Props) {
         </div>
 
         {isDesktop && (
-          <div className={styles.icon}>
+          <animated.div className={styles.icon} style={iconSpring}>
             <ResultsIcon />
-          </div>
+          </animated.div>
         )}
       </main>
       <QuizFooter
         buttons={[
           {
-            text: t(sharedTranslations.goToAnswers),
-            onClick: handleClick,
+            text: t(sharedTranslations.close),
+            onClick: goBackToPage,
           },
         ]}
         withCopyright={isMobile}
       />
-    </div>
+    </animated.div>
   );
 
   function goToQuiz() {
-    if (redirectPath) {
-      redirect();
+    if (redirectToQuizPath) {
+      quizRedirect();
+    }
+  }
+
+  function goBackToPage() {
+    if (redirectToPage) {
+      pageRedirect();
     }
   }
 

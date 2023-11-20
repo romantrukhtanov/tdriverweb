@@ -123,6 +123,7 @@ export const uz = {
     goToAnswers: 'Javoblarga',
     goToResults: 'Natijalarga',
     areYouReady: 'Tayyormisiz?',
+    close: 'Yopish',
     finishTest: 'Sinov yopilsinmi?',
     goToMain: "Bosh sahifaga o'tingmi?",
     copied: 'Nusxalandi',

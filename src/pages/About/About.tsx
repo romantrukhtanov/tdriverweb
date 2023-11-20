@@ -7,7 +7,7 @@ import { useService } from 'services/servicesProvider';
 import { InnerBlock } from 'pages/shared/InnerBlock/InnerBlock';
 import { Wallet } from 'features/about/view/Wallet/Wallet';
 import { BankCard } from 'features/about/view/BankCard/BankCard';
-import { getDefaultConfig, useSpringOnce } from 'shared/animations/useSpringOnce';
+import { getDefaultConfig, useSpringOnce } from 'shared/animations';
 import { wallets, bankCards } from 'features/about/constants';
 
 import { AboutIcon } from './AboutIcon/AboutIcon';

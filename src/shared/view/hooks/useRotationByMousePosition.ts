@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { throttle } from 'throttle-debounce';
 
 import { clamp } from 'shared/helpers/clamp';
 
@@ -19,7 +20,7 @@ export function useRotationByMousePosition<T extends SVGElement = SVGPathElement
     const centerPoint = getComputedStyle(elementRef.current).transformOrigin;
     const centers = centerPoint.split(' ');
 
-    const handeMouseMove = (e: MouseEvent) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setDegree(calculateDegree(e.clientX, e.clientY));
     };
 
@@ -46,14 +47,17 @@ export function useRotationByMousePosition<T extends SVGElement = SVGPathElement
       return clamp(Math.round(resultDegree), limits);
     }
 
-    window.addEventListener('mousemove', handeMouseMove);
-    window.addEventListener('touchmove', handleTouch);
-    window.addEventListener('touchstart', handleTouch);
+    const throttledHandleMouseMove = throttle(200, handleMouseMove);
+    const throttledHandleTouch = throttle(200, handleTouch);
+
+    window.addEventListener('mousemove', throttledHandleMouseMove);
+    window.addEventListener('touchmove', throttledHandleTouch);
+    window.addEventListener('touchstart', throttledHandleTouch);
 
     return () => {
-      window.removeEventListener('mousemove', handeMouseMove);
-      window.removeEventListener('touchmove', handleTouch);
-      window.removeEventListener('touchstart', handleTouch);
+      window.removeEventListener('mousemove', throttledHandleMouseMove);
+      window.removeEventListener('touchmove', throttledHandleTouch);
+      window.removeEventListener('touchstart', throttledHandleTouch);
     };
   }, [elementRef]);
   /* eslint-enable react-hooks/exhaustive-deps */

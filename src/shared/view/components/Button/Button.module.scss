@@ -19,6 +19,7 @@
   font-weight: 400;
   line-height: R.rem(20px);
   letter-spacing: R.rem(4px);
+  border: 1px solid transparent;
 
   @include themes.theme {
     color: themes.global('primaryColor');

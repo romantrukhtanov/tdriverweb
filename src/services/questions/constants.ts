@@ -61,3 +61,5 @@ export const DEFAULT_CATEGORIES_DATA: Record<M.Category, M.QuestionData[]> = {
 };
 
 export const DEFAULT_QUIZ_QUESTIONS_AMOUNT = 20;
+
+export const MAX_WRONG_ANSWERS = 2;

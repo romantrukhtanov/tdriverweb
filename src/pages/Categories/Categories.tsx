@@ -4,7 +4,7 @@ import { animated } from '@react-spring/web';
 
 import { useService } from 'services/servicesProvider';
 import { useFeature } from 'features/featureProvider';
-import { getDefaultConfig, useSpringOnce } from 'shared/animations/useSpringOnce';
+import { getDefaultConfig, useSpringOnce } from 'shared/animations';
 import { InnerBlock } from 'pages/shared/InnerBlock/InnerBlock';
 import * as M from 'services/questions/mobx/model';
 

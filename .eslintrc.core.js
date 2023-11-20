@@ -108,12 +108,6 @@ module.exports = {
       },
     ],
     'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': [
-      'error',
-      {
-        additionalHooks: 'useDelayedEffect',
-      },
-    ],
     'consistent-return': 'off',
     'no-underscore-dangle': ['error', { allowAfterThis: true, allow: ['__'] }],
     '@typescript-eslint/no-use-before-define': [

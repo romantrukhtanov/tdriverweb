@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { animated } from '@react-spring/web';
 import cn from 'classnames';
 
-import { getDefaultConfig, useSpringOnce } from 'shared/animations/useSpringOnce';
+import { getDefaultConfig, useSpringOnce } from 'shared/animations';
 
 import styles from './InnerTitle.module.scss';
 

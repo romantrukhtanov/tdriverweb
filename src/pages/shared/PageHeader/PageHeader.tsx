@@ -5,7 +5,7 @@ import { animated } from '@react-spring/web';
 import { routes } from 'pages/routes';
 import { useService } from 'services/servicesProvider';
 import { BurgerIcon } from 'shared/view/components/icons';
-import { useSpringOnce, getDefaultConfig } from 'shared/animations/useSpringOnce';
+import { useSpringOnce, getDefaultConfig } from 'shared/animations';
 
 import { Logo } from './Logo/Logo';
 import { MainNav } from './MainNav/MainNav';

@@ -1,16 +1,7 @@
 import { useEffect } from 'react';
-import { easings, useSpring, useSpringRef, UseSpringProps } from '@react-spring/web';
+import { useSpring, useSpringRef, UseSpringProps } from '@react-spring/web';
 
 import { useService } from 'services/servicesProvider';
-
-type ConfigParams = {
-  x?: string;
-  y?: string;
-  opacity?: number;
-  duration?: number;
-  delay?: number;
-  easing?(t: number): number;
-};
 
 const memoryStore = new Set<string>();
 
@@ -35,24 +26,4 @@ export function useSpringOnce(key: string, props: UseSpringProps, lockMobile?: b
   }
 
   return spring;
-}
-
-export function getDefaultConfig(params?: ConfigParams): UseSpringProps {
-  return {
-    from: {
-      x: params?.x,
-      y: params?.y,
-      opacity: params?.opacity ?? 0,
-    },
-    to: {
-      x: '0%',
-      y: '0%',
-      opacity: 1,
-    },
-    config: {
-      duration: params?.duration ?? 500,
-      easing: params?.easing ?? easings.easeOutExpo,
-    },
-    delay: params?.delay ?? 350,
-  };
 }

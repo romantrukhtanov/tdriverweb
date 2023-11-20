@@ -8,6 +8,7 @@ import { PageHeader } from 'pages/shared/PageHeader/PageHeader';
 import { Sphere } from 'shared/view/components/Sphere';
 import { lazyfy } from 'shared/helpers/lazyfy';
 
+import { useHitGoal } from '../useHitGoal';
 import styles from './Layout.module.scss';
 
 const { MainLazy } = lazyfy(
@@ -36,6 +37,8 @@ const { AboutLazy } = lazyfy(
 
 export const Layout = observer(function Layout() {
   const elementRef = useScrollRestoration('layout');
+
+  useHitGoal();
 
   return (
     <div className={styles.root}>

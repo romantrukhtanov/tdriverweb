@@ -71,9 +71,8 @@
 
   max-width: R.rem(370px);
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  justify-items: center;
   gap: R.rem(32px);
 
   &:first-child {
@@ -192,8 +191,14 @@
   grid-template-columns: repeat(5, 1fr);
 }
 
-.repeat-button {
-  width: R.rem(260px);
+.buttons {
+  display: flex;
+  gap: R.rem(16px);
+}
+
+.button {
+  flex-shrink: 0;
+  width: auto;
 }
 
 .icon {

@@ -4,9 +4,9 @@ import { Route, Routes } from 'react-router-dom';
 import { useLangTitle } from 'core/useLangTitle';
 import { useFontFaceObserver } from 'core/useFontFaceObserver';
 import { ErrorBoundary } from 'pages/shared/ErrorBoundary/ErrorBoundary';
-import { InstallationProvider } from 'services/installation/view/InstallationProvider';
 import { lazyfy } from 'shared/helpers/lazyfy';
 
+import { useHitGoal } from './useHitGoal';
 import { Layout } from './Layout/Layout';
 import { routes } from '../routes';
 
@@ -25,6 +25,7 @@ const { ResultsLazy } = lazyfy(
 export function Router() {
   useFontFaceObserver();
   useLangTitle();
+  useHitGoal();
 
   return (
     <>
@@ -42,7 +43,10 @@ export function Router() {
           element={
             <ErrorBoundary key="tickets-quiz-results">
               <ResultsLazy
-                redirectTo={(ticket: string) => routes.tickets.ticket.getRedirectPath({ ticket })}
+                redirectToQuiz={(ticket: string) =>
+                  routes.tickets.ticket.getRedirectPath({ ticket })
+                }
+                redirectToPage={routes.tickets.getRedirectPath()}
               />
             </ErrorBoundary>
           }
@@ -61,9 +65,10 @@ export function Router() {
           element={
             <ErrorBoundary key="categories-quiz-results">
               <ResultsLazy
-                redirectTo={(category: string) =>
+                redirectToQuiz={(category: string) =>
                   routes.categories.category.getRedirectPath({ category })
                 }
+                redirectToPage={routes.categories.getRedirectPath()}
               />
             </ErrorBoundary>
           }
@@ -81,7 +86,10 @@ export function Router() {
           path="/quiz/results"
           element={
             <ErrorBoundary key="quiz-results">
-              <ResultsLazy redirectTo={() => routes.quiz.getRedirectPath()} />
+              <ResultsLazy
+                redirectToQuiz={() => routes.quiz.getRedirectPath()}
+                redirectToPage="/"
+              />
             </ErrorBoundary>
           }
         />
@@ -95,8 +103,6 @@ export function Router() {
           }
         />
       </Routes>
-
-      <InstallationProvider />
     </>
   );
 }

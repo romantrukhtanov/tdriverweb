@@ -5,7 +5,7 @@ import cn from 'classnames';
 
 import { useService } from 'services/servicesProvider';
 import { Socials } from 'pages/shared/Socials/Socials';
-import { getDefaultConfig, useSpringOnce } from 'shared/animations/useSpringOnce';
+import { getDefaultConfig, useSpringOnce } from 'shared/animations';
 
 import styles from './InnerFooter.module.scss';
 

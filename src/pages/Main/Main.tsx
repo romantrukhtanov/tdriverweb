@@ -7,8 +7,8 @@ import { useService } from 'services/servicesProvider';
 import { Socials } from 'pages/shared/Socials/Socials';
 import { Policeman } from 'shared/view/components/Policeman';
 import { Speedometer } from 'shared/view/components/Speedometer';
+import { useSpringOnce, getDefaultConfig } from 'shared/animations';
 import { Car } from 'shared/view/components/Car';
-import { useSpringOnce, getDefaultConfig } from 'shared/animations/useSpringOnce';
 
 import { StartButton } from './StartButton/StartButton';
 import styles from './Main.module.scss';

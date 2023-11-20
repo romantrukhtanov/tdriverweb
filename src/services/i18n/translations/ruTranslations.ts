@@ -124,6 +124,7 @@ export const ru = {
     goToAnswers: 'К ответам',
     goToResults: 'К результатам',
     areYouReady: 'Вы готовы?',
+    close: 'Закрыть',
     finishTest: 'Закрыть тест?',
     goToMain: 'Перейти на главную?',
     copied: 'Скопировано',
