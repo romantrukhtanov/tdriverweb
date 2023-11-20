@@ -1,3 +1,9 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Disallow:
+
+# Host
+Host: https://tdriver.uz
+
+# Sitemaps
+Sitemap: https://tdriver.uz/sitemap.xml
