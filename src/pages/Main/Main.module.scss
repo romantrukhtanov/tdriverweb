@@ -104,18 +104,9 @@ $mobile-title-font-size: 34px;
     left: R.rem(16px);
     bottom: 0;
   }
-
-  @include D.mobile {
-    margin-bottom: R.rem(100px);
-  }
 }
 
 .footer {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  z-index: 10;
-
   padding: R.rem(36px) R.rem(24px);
   margin: 0;
 
@@ -124,19 +115,20 @@ $mobile-title-font-size: 34px;
   width: 100%;
 
   @include D.mobile {
-    position: fixed;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    gap: R.rem(8px);
+    gap: R.rem(24px);
 
-    padding: R.rem(24px) R.rem(20px);
+    padding: 0 0 R.rem(32px);
+  }
 
-    @include themes.theme {
-      background: themes.global('primaryColor');
-    }
+  @include D.desktop {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 10;
   }
 }
 

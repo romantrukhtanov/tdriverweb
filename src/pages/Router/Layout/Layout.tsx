@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Navigate, Route, Routes } from 'react-router-dom';
 
+import { useService } from 'services/servicesProvider';
 import { useScrollRestoration } from 'shared/view/hooks/useScrollRestoration';
 import { ErrorBoundary } from 'pages/shared/ErrorBoundary/ErrorBoundary';
 import { PageHeader } from 'pages/shared/PageHeader/PageHeader';
+import { MBottomNav } from 'pages/shared/MBottomNav/MBottomNav';
 import { Sphere } from 'shared/view/components/Sphere';
 import { lazyfy } from 'shared/helpers/lazyfy';
 
@@ -37,12 +39,21 @@ const { AboutLazy } = lazyfy(
 
 export const Layout = observer(function Layout() {
   const elementRef = useScrollRestoration('layout');
+  const { isMobile } = useService('settings');
 
   useHitGoal();
 
+  const scrollToTop = useCallback(() => {
+    elementRef?.current?.scroll({
+      behavior: 'smooth',
+      top: 0,
+      left: 0,
+    });
+  }, [elementRef]);
+
   return (
     <div className={styles.root}>
-      <PageHeader />
+      <PageHeader onClick={scrollToTop} />
       <main className={styles.main} ref={elementRef}>
         <Routes>
           <Route
@@ -80,6 +91,8 @@ export const Layout = observer(function Layout() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
+
+      {isMobile && <MBottomNav onChange={scrollToTop} />}
       <Sphere />
     </div>
   );

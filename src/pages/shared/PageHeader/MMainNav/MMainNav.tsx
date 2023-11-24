@@ -21,9 +21,10 @@ const drawerClasses: DrawerProps['classes'] = {
 
 type Props = {
   navItems: NavItem[];
+  onClick?(): void;
 };
 
-export const MMainNav = observer(function MMainNav({ navItems }: Props) {
+export const MMainNav = observer(function MMainNav({ navItems, onClick }: Props) {
   const { t, tKeys } = useService('i18n');
   const {
     isMenuOpen,
@@ -75,7 +76,7 @@ export const MMainNav = observer(function MMainNav({ navItems }: Props) {
                     className={({ isActive }) => cn(styles.navLink, { [styles.active]: isActive })}
                     to={navItem.href}
                     title={navItem.label}
-                    onClick={toggleMobileMenuOpen}
+                    onClick={handleNavClick}
                   >
                     {navItem.label}
                   </NavLink>
@@ -117,6 +118,11 @@ export const MMainNav = observer(function MMainNav({ navItems }: Props) {
         <div className={styles.text}>{t(translations.languages[selectedLanguage])}</div>
       </button>
     );
+  }
+
+  function handleNavClick() {
+    toggleMobileMenuOpen();
+    onClick?.();
   }
 
   function handleInstall() {

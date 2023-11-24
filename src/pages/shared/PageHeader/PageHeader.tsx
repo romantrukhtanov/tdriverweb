@@ -14,7 +14,11 @@ import { MMainNav } from './MMainNav/MMainNav';
 import styles from './PageHeader.module.scss';
 import type { NavItem } from './types';
 
-export const PageHeader = observer(function PageHeader() {
+type Props = {
+  onClick?(): void;
+};
+
+export const PageHeader = observer(function PageHeader({ onClick }: Props) {
   const { t, tKeys } = useService('i18n');
   const { isMobile, setIsMenuOpen } = useService('settings');
 
@@ -72,7 +76,7 @@ export const PageHeader = observer(function PageHeader() {
             <BurgerIcon />
           </button>
         </div>
-        <MMainNav navItems={mainNavItems} />
+        <MMainNav navItems={mainNavItems} onClick={onClick} />
       </>
     );
   }

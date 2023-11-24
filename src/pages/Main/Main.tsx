@@ -53,9 +53,7 @@ export const Main = observer(function Main() {
           {t(translations.title)}
         </animated.h1>
       </div>
-      <animated.div className={styles.socials} style={leftSpring}>
-        <Socials direction={isMobile ? 'horizontal' : 'vertical'} />
-      </animated.div>
+      {isMobile ? renderStartButton() : renderSocials()}
       <animated.div className={styles.policeman} style={bottomSpring}>
         <Policeman />
       </animated.div>
@@ -70,11 +68,31 @@ export const Main = observer(function Main() {
         </animated.div>
       )}
       <footer className={styles.footer}>
-        <animated.div style={bottomSpring}>
-          <StartButton />
-        </animated.div>
-        {isMobile && <div className={styles.copyright}>{t(sharedTranslations.copyright)}</div>}
+        {isMobile ? (
+          <>
+            {renderSocials()}
+            <div className={styles.copyright}>{t(sharedTranslations.copyright)}</div>
+          </>
+        ) : (
+          renderStartButton()
+        )}
       </footer>
     </animated.section>
   );
+
+  function renderStartButton() {
+    return (
+      <animated.div style={bottomSpring}>
+        <StartButton />
+      </animated.div>
+    );
+  }
+
+  function renderSocials() {
+    return (
+      <animated.div className={styles.socials} style={leftSpring}>
+        <Socials direction={isMobile ? 'horizontal' : 'vertical'} />
+      </animated.div>
+    );
+  }
 });

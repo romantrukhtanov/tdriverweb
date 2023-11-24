@@ -2,7 +2,7 @@
 @use 'src/shared/view/styles/devices' as D;
 
 .root {
-  min-width: R.rem(300px);
+  min-width: R.rem(260px);
 
   @include D.mobile {
     width: 100%;

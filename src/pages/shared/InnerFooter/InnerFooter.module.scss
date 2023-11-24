@@ -23,11 +23,11 @@
 
   @include themes.theme {
     color: themes.global('secondaryColor');
-    background-color: themes.global('primaryColor');
   }
 
   @include D.desktop {
     @include themes.theme {
+      background-color: themes.global('primaryColor');
       box-shadow: 0 -1px 0 0 themes.global('secondaryColor');
     }
   }

@@ -1,6 +1,5 @@
-# https://www.robotstxt.org/robotstxt.html
 User-agent: *
-Disallow:
+Disallow: /*?ref=*
 
 # Host
 Host: https://tdriver.uz

@@ -18,6 +18,8 @@
   width: 100%;
 
   @include D.mobile {
+    position: absolute;
+
     padding: 0 R.rem(20px) R.rem(24px);
 
     flex-direction: column;
