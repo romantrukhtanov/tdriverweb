@@ -6,7 +6,6 @@
   "scripts": {
     "test": "vitest run --silent",
     "test:watch": "vitest",
-    "test:coverage": "npm run test -- --coverage",
     "dev": "better-npm-run dev",
     "prod": "better-npm-run prod",
     "build:dev": "better-npm-run build:dev",
@@ -129,7 +128,6 @@
     "@types/webpack-bundle-analyzer": "^4.4.1",
     "@typescript-eslint/eslint-plugin": "^6.4.1",
     "@typescript-eslint/parser": "^6.4.1",
-    "@vitest/coverage-c8": "~0.30.1",
     "autoprefixer": "^10.2.6",
     "babel-loader": "^9.1.2",
     "babel-plugin-react-remove-properties": "~0.3.0",

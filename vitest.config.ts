@@ -28,8 +28,5 @@ export default defineConfig({
     environment: 'jsdom',
     include: ['**/*.test.ts'],
     setupFiles: [path.resolve(__dirname, 'vitest.setup.ts')],
-    coverage: {
-      include: ['src/features/tradingChart/mobx/Datafeed/**/*'],
-    },
   },
 });
