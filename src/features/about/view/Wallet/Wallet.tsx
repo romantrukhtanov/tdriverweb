@@ -29,7 +29,7 @@ export const Wallet = observer(function Wallet({ wallet }: Props) {
         type="button"
       >
         <div className={styles.icon}>
-          <CopyIcon />
+          <CopyIcon className={styles.svg} />
         </div>
         <p className={styles.address}>
           {wallet.currency} ({wallet.network}): {wallet.address}

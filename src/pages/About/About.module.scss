@@ -81,6 +81,10 @@
 .donate {
   display: flex;
   flex-direction: column;
+
+  @include D.mobile {
+    gap: R.rem(4px);
+  }
 }
 
 .wallets-title {
@@ -96,6 +100,10 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+
+  @include D.mobile {
+    gap: R.rem(4px);
+  }
 }
 
 .icon {

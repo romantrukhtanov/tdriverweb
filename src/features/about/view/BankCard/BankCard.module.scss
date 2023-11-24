@@ -34,10 +34,15 @@
   justify-content: center;
   flex-shrink: 0;
 
-  width: R.rem(40px);
-  height: R.rem(40px);
+  width: R.rem(36px);
+  height: R.rem(36px);
 
   border-radius: 50%;
+
+  @include D.desktop {
+    width: R.rem(40px);
+    height: R.rem(40px);
+  }
 
   @include themes.theme {
     color: themes.global('primaryColor');
@@ -45,16 +50,29 @@
   }
 }
 
+.svg {
+  font-size: R.rem(22px);
+
+  @include D.desktop {
+    font-size: R.rem(24px);
+  }
+}
+
 .address {
   margin: 0;
 
-  font-size: R.rem(20px);
+  font-size: R.rem(16px);
   font-weight: 400;
-  line-height: R.rem(38px);
+  line-height: R.rem(24px);
   letter-spacing: R.rem(1px);
 
   overflow: hidden;
   text-overflow: ellipsis;
+
+  @include D.desktop {
+    font-size: R.rem(20px);
+    line-height: R.rem(28px);
+  }
 }
 
 .address-text {
