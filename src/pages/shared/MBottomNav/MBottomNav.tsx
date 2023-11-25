@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import {
   BottomNavigation,
@@ -64,6 +64,14 @@ export const MBottomNav = ({ onChange }: Props) => {
   ];
 
   const [activeTab, setActiveTab] = useState<string>(getActiveTab);
+
+  useEffect(() => {
+    const nextActiveTab = getActiveTab();
+
+    if (activeTab !== nextActiveTab) {
+      setActiveTab(nextActiveTab);
+    }
+  }, [location]);
 
   return (
     <div className={styles.root}>
