@@ -43,7 +43,13 @@ export const Answers = observer(function Answers({
         <div className={styles.media}>
           <div className={styles.mediaInner}>
             {image && !isRenderVideo && (
-              <img className={styles.mediaSource} src={`/${image}`} alt="Media" draggable={false} />
+              <img
+                className={styles.mediaSource}
+                src={`/${image}`}
+                alt="Media"
+                draggable={false}
+                loading="lazy"
+              />
             )}
             {isRenderVideo && (
               <video
