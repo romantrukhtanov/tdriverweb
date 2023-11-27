@@ -4,8 +4,6 @@
 @use 'src/shared/view/styles/responsive' as R;
 
 .root {
-  @include S.scrollbar-hidden;
-
   position: relative;
 
   padding-left: env(safe-area-inset-left);
@@ -14,22 +12,24 @@
   display: grid;
   grid-template-rows: max-content auto;
 
-  overflow-x: hidden;
-  overflow-y: auto;
-
   @include D.mobile {
     display: flex;
     flex-flow: column;
     grid-template-rows: none;
 
     .main {
+      @include S.scrollbar-hidden;
+
+      overflow: hidden auto;
+
       flex: 1;
 
       max-width: none;
       min-height: auto;
+      height: 100%;
 
       margin-top: 0;
-      margin-bottom: 0
+      margin-bottom: 0;
     }
   }
 
