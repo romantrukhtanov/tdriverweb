@@ -1,4 +1,6 @@
 RewriteEngine On
+# Served from public_html/tdriver.uz/ via the account's root .htaccess.
+RewriteBase /tdriver.uz/
 
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)/$ /$1 [L,R=301]
